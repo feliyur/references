@@ -1,0 +1,917 @@
+@Article{Kim21access,
+  author    = {Soyeong Kim and Jinsu Ha and Kichun Jo},
+  journal   = {{IEEE} Access},
+  title     = {Semantic Point Cloud-Based Adaptive Multiple Object Detection and Tracking for Autonomous Vehicles},
+  year      = {2021},
+  pages     = {157550--157562},
+  volume    = {9},
+  abstract  = {LiDAR-based Multiple Object Detection and Tracking (MODT) is one of the essential tasks in autonomous driving. Since MODT is directly related to the safety of an autonomous vehicle, it is critical to provide reliable information about the surrounding objects. For that reason, we propose a semantic point cloud-based adaptive MODT system for autonomous driving. Semantic point clouds emerge with advances in deep learning-based Point Cloud Semantic Segmentation (PCSS), which assigns semantic information to each point in the point cloud of LiDAR. This semantic information provides several advantages to the MODT system. First, any point corresponding to any static object can be filtered. Because the class information assigned to each point can be directly utilized, filtering is possible without any modeling. Second, the class information of an object can be inferred without any special classification process because the class information is provided from the semantic point cloud. Finally, the clustering and tracking module can consider unique dimensional and dynamic characteristics based on class information. We utilize the Carla simulator and KITTI dataset to verify our method by comparing several existing algorithms. In conclusion, the accuracy of the proposed algorithm is improved by about 176% on average compared to the existing algorithm. INDEX TERMS Semantic point cloud, point cloud semantic segmentation, multiple object detection and tracking (MODT), class-adaptive tracking, autonomous vehicle, LiDAR.},
+  doi       = {10.1109/access.2021.3130257},
+  file      = {:/home/fey1tv/Radar/radar_xlabel/papers/Kim21access.pdf:PDF},
+  groups    = {L-Shape Matching},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{Zhao21tiv,
+  author     = {Chengfeng Zhao and Chen Fu and John Dolan and Jun Wang},
+  journal    = {{IEEE} Transactions on Intelligent Vehicles},
+  title      = {L-Shape Fitting-Based Vehicle Pose Estimation and Tracking Using 3D-{LiDAR}},
+  year       = {2021},
+  month      = {dec},
+  number     = {4},
+  pages      = {787--798},
+  volume     = {6},
+  abstract   = {Detecting and tracking moving vehicles is one of the most fundamental functions of autonomous vehicles driving in complex scenarios, as it forms the foundation of decision making and path planning. In order to estimate the pose information of moving vehicles accurately, 3D-LiDAR is widely used for accurate distance data. This paper proposed a real-time tracking algorithm based on L-Shape fitting. The algorithm detects the corners of moving vehicles and uses RANSAC to take a limited amount of noisy data. In addition, a vehicle tracking system with multiweight Rao-Blackwellized Particle Filtering (RBPF) is built upon the orientation estimation given by L-Shape fitting. The proposed algorithm is validated on the KITTI dataset and a manually labeled dataset acquired from an autonomous vehicle at Carnegie Mellon University. Furthermore, the proposed solution is implemented in an autonomous vehicle at Tongji University. The experiments illustrate that the proposed algorithm achieves real-time performance, mitigates the effect of noisy data and improves estimation accuracy.},
+  comment    = {Estimate L-shape by first selecting the corner point as the closest-distance point, then use RANSAC sequentially fitting lines for the vehicle sides 
+
+(Yuri) Should be fairly easy to break this, right? Enough for closest point to not belong to the vehicle, i.e. they assume perfect segmentation in a sense.},
+  doi        = {10.1109/tiv.2021.3078619},
+  file       = {:/home/fey1tv/Radar/radar_xlabel/papers/Zhao22tiv.pdf:PDF},
+  groups     = {L-Shape Matching},
+  keywords   = {Vehicle tracking, 3D-LiDAR, L-Shape fitting, Rao-Blackwellized Particle Filtering},
+  publisher  = {Institute of Electrical and Electronics Engineers ({IEEE})},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Liu20ivs,
+  author     = {Liu, Yang and Liu, Bingbing and Zhang, Hongbo},
+  booktitle  = {Intelligent Vehicles Symposium},
+  title      = {Estimation of 2D Bounding Box Orientation with Convex-Hull Points -A Quantitative Evaluation on Accuracy and Efficiency},
+  year       = {2020},
+  publisher  = {IEEE},
+  abstract   = {Estimating the bounding box from an object point cloud is an essential task in autonomous driving with LiDAR/laser sensors. We present an efficient bounding box estimation method that can be applied on 2D bird's-eye view (BEV) LiDAR points to generate the bounding box geometry including length, width and orientation. Given a set of 2D points, the method utilizes their convex-hull points to calculate a small set of candidate directions of the box yaw orientation, and therefore reduces the searching space-usually a fine partition of an angle range (e.g. [0, π/2)) as in the previous solutionsto find the optinal angle. To further improve the efficiency, we investigate the techniques of controlling the number of convexhull points, by both applying approximate collinearity condition and downsampling the raw point cloud to a smaller size. We provide comprehensive analysis on both accuracy and efficiency of the proposed method on the KITTI 3D object dataset. The results show that without obviously sacrificing the accuracy, the method, especially when using approximate convex-hull points, can significantly improve the time of estimating the bounding box orientation by almost one order of magnitude.},
+  comment    = {Compute convex hull on given points, then do exhaustive search on all pairs of convex hull vertices as main axis. 
+
+(Yuri) Also assume that all the points in the set are inliers.},
+  file       = {:/home/fey1tv/Radar/radar_xlabel/papers/Liu21ivs.pdf:PDF},
+  groups     = {L-Shape Matching},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Zhang17ivs,
+  author     = {Zhang, Xiao and Xu, Wenda and Dong, Chiyu and Dolan, John},
+  booktitle  = {Intelligent Vehicles Symposium},
+  title      = {Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners},
+  year       = {2017},
+  abstract   = {The detection of surrounding vehicles is an essential task in autonomous driving, which has been drawing enormous attention recently. When using laser scanners, L-Shape fitting is a key step for model-based vehicle detection and tracking, which requires thorough investigation and comprehensive research. In this paper, we formulate the L-Shape fitting as an optimization problem. An efficient search based method is then proposed to find the optimal solution. Our method does not rely on laser scan sequence information and therefore supports convenient data fusion from multiple laser scanners; it is efficient and involves very few parameters for tuning; the approach is also flexible to suit various fitting demands with different fitting criteria. On-road experiments with productiongrade laser scanners have demonstrated the effectiveness and robustness of our approach.},
+  comment    = {Estimate L-shape via full (discretized) search of orientation angles, they estimate bounding box for each angle and select the best according to multiple criteria choices. 
+
+(Yuri) Outliers not handled in L-shape fitting. The best-scoring configuration is chosen based on all points and may be (and is) affected by outliers.},
+  file       = {:/home/fey1tv/Radar/radar_xlabel/papers/Zhang17ivs.pdf:PDF},
+  groups     = {L-Shape Matching},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Oniga18iccp,
+  author     = {Oniga, Florin and Nedevschi, Sergiu},
+  booktitle  = {International Conference on Computational Photography},
+  title      = {A Fast Ransac Based Approach for Computing the Orientation of Obstacles in Traffic Scenes},
+  year       = {2018},
+  number     = {Romania},
+  publisher  = {IEEE},
+  abstract   = {A low complexity approach for computing the orientation of 3D obstacles, detected from lidar data, is proposed in this paper. The proposed method takes as input obstacles represented as cuboids without orientation (aligned with the reference frame). Each cuboid contains a cluster of obstacle locations (discrete grid cells). First, for each obstacle, the boundaries that are visible for the perception system are selected. A model consisting of two perpendicular lines is fitted to the set of boundary cells, one for each presumed visible side. The main dominant line is computed with a RANSAC approach. Then, the second line is searched, using a constraint of perpendicularity on the dominant line. The existence of the second line is used to validate the orientation. Finally, additional criteria are proposed to select the best orientation based on the free area of the cuboid (on top view) that is visible to the perception system.},
+  comment    = {Per-vehicle use a discretized occupancy grid. Compute visible boundary cells.
+
+Sequentially fit the main axis and the auxiliary axis using RANSAC, which would fail for significant aliasing for a single axis.},
+  file       = {:/home/fey1tv/Radar/radar_xlabel/papers/Oniga18iccp.pdf:PDF},
+  groups     = {L-Shape Matching},
+  keywords   = {obstacle detection, oriented cuboids, autonomous driving, lidars},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Shen15cis,
+  author     = {Shen, Xiaotong and Pendleton, Scott and Ang, Marcelo},
+  booktitle  = {International Conference on Cybernetics and Intelligent Systems},
+  title      = {Efficient L-shape Fitting of Laser Scanner Data for Vehicle Pose Estimation},
+  year       = {2015},
+  publisher  = {IEEE},
+  abstract   = {In this paper, we propose an efficient algorithm to fit a cluster of laser scan points with an L-shape. The algorithm partitions a cluster into two disjoint sets optimally in the sense of the least square error, and then fits them with two perpendicular lines. By exploiting the characteristics of both the laser scanner sensor and the fitting problem, the algorithm can test all the possible corner points while keeping the complexity as low as 9 times that of fitting a single pair of orthogonal lines, where the 9 times scaling factor is independent of the number of points in the cluster. Specifically, we exploit the property that the scanner data points are ordered either clockwise or counterclockwise, and incrementally construct the L-shape fitting problem rather than from scratch when the corner point is different. We extend our algorithm to provide multiple hypotheses on pose estimation, which are derived from L-shape fitting, to account for the ambiguity on the corner points. The extended algorithm only requires slightly more computation, which is tested and verified with real laser scanner data. The experimental results justify the correctness and efficacy of our algorithm.},
+  comment    = {Scan the given points in the direction of radar scanning for corner point / partition - solving joint L-shape estimation via least-squares incrementally. 
+
+Not outlier-resistant.},
+  file       = {:/home/fey1tv/Radar/radar_xlabel/papers/Shen15cis.pdf:PDF},
+  groups     = {L-Shape Matching},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Qu18icrb,
+  author     = {Qu, Sanqing and Chen, Guang and Ye, Canbo and Lu, Fan and Wang, Fa and Xu, Zhongcong and Ge, Yixin},
+  booktitle  = {IEEE International Conference on Robotics and Bioinformatics},
+  title      = {An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR},
+  year       = {2018},
+  number     = {by},
+  abstract   = {Detecting vehicles with strong robustness and high efficiency has become one of the key capabilities of fully autonomous driving cars. This topic has already been widely studied by GPU-accelerated deep learning approaches using image sensors and 3D LiDAR, however, few studies seek to address it with a horizontally mounted 2D laser scanner. 2D laser scanner is equipped on almost every autonomous vehicle for its superiorities in the field of view, lighting invariance, high accuracy and relatively low price. In this paper, we propose a highly efficient search-based L-Shape fitting algorithm for detecting positions and orientations of vehicles with a 2D laser scanner. Differing from the approach to formulating L-Shape fitting as a complex optimization problem, our method decomposes the L-Shape fitting into two steps: L-Shape vertexes searching and L-Shape corner localization. Our approach is computationally efficient due to its minimized complexity. In on-road experiments, our approach is capable of adapting to various circumstances with high efficiency and robustness.},
+  comment    = {Dismiss the idea of 3-vertex RANSAC as too computationally heavy - they did not implement it. 
+
+They implemented a heuristic scheme selecting L-shape horizontal endpoints (i.e. lying left-most and right-most on the line perpendicular to line of sight towards the car), then the cornerpoint, matching some criterion (e.g. roughly 90 degrees angle b/w segments connecting it with cornerpoints) in between the horizontal cornerpoints. Approximate remaining points with a rectangle. 
+
+Approach will fail in the presence of outliers, e.g. outliers selected as endpoints would lead to an arbitrarily incorrect bounding box.},
+  file       = {:papers/Qu18icrb.pdf:PDF},
+  groups     = {L-Shape Matching},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Kim18its,
+  author    = {Dongchul Kim and Kichun Jo and Minchul Lee and Myoungho Sunwoo},
+  booktitle = {Transactions on Intelligent Transportation Systems},
+  title     = {L-Shape Model Switching-Based Precise Motion Tracking of Moving Vehicles Using Laser Scanners},
+  year      = {2018},
+  publisher = {IEEE},
+  abstract  = {IEEE Transactions on Intelligent Transportation Systems;2018;19;2;10.1109/TITS.2017.2771820},
+  file      = {:/home/fey1tv/Radar/radar_xlabel/papers/Kim18its.pdf:PDF},
+  groups    = {L-Shape Matching},
+  keywords  = {Vehicle tracking, L-shape model, modeling switching filter, laser scanner},
+}
+
+@Article{Liu19sensors,
+  author   = {Kaiqi Liu and Jianqiang Wang},
+  journal  = {Sensors (Basel, Switzerland)},
+  title    = {Fast Dynamic Vehicle Detection in Road Scenarios Based on Pose Estimation with Convex-Hull Model},
+  year     = {2019},
+  abstract = {Dynamic vehicle detection is of great significance for the safety of autonomous vehicles and the formulation of subsequent driving strategies. A pose-estimation algorithm, namely, the pose estimation with convex-hull model (PE-CHM), is proposed in this paper, and introduced in the dynamic vehicle detection system. In PE-CHM, the convex hull of the object's point-clouds is first extracted and the most fitted bounding box is determined by a multifactor objective function. Next, the center position of the target is inferred according to the location and direction of the target. With the obtained bounding box and the position inference, the pose of the target is determined, which reduces the interference of the missing contour on pose estimation. Finally, three experiments were performed to validate the performance of the proposed PE-CHM method. Compared with several typical model-based methods, PE-CHM can implement dynamic vehicle detection faster, which reduces the amount of calculation on the basis of ensuring detection efficiency.},
+  doi      = {10.3390/s19143136},
+  file     = {:/home/fey1tv/Radar/radar_xlabel/papers/Liu19sensors.pdf:PDF},
+  groups   = {L-Shape Matching},
+  keywords = {autonomous vehicle; environmental perception; Lidar; dynamic vehicle detection},
+}
+
+@Article{Arikumar22electronics,
+  author    = {K. S. Arikumar and A. Deepak Kumar and Thippa Reddy Gadekallu and Sahaya Beni Prathiba and K. Tamilarasi},
+  journal   = {Electronics},
+  title     = {Real-Time 3D Object Detection and Classification in Autonomous Driving Environment Using 3D {LiDAR} and Camera Sensors},
+  year      = {2022},
+  month     = {dec},
+  number    = {24},
+  pages     = {4203},
+  volume    = {11},
+  abstract  = {This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY)},
+  date      = {2022-12-16},
+  day       = {16},
+  doi       = {10.3390/electronics11244203},
+  editor    = {Donghyeon Cho},
+  file      = {:/home/fey1tv/Radar/radar_xlabel/papers/Arikumar22electronics.pdf:PDF},
+  groups    = {L-Shape Matching},
+  keywords  = {Arikumar, K.S., Deepak Kumar, A., Gadekallu, T.R., Prathiba, S.B., Tamilarasi, K. Real-Time 3D Object Detection and Classification in Autonomous Driving Environment Using 3D LiDAR and Camera autonomous vehicular safety, 3D object detection, convolutional neural networks, 3D LiDAR sensor, camera sensor, fusing sensor data},
+  publisher = {{MDPI} {AG}},
+}
+
+@InProceedings{Qi17cvpr,
+  author     = {Charles R. Qi, Hao Su, Kaichun Mo, Leonidas J. Guibas},
+  booktitle  = {IEEE Conference on Computer Vision and Pattern Recognition},
+  title      = {PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation},
+  year       = {2017},
+  abstract   = {2017 IEEE Conference on Computer Vision and Pattern Recognition},
+  comment    = {Defines a layer operating on sets (order-invariant) via a symmetrical function (e.g. max) on the features.},
+  file       = {:/home/fey1tv/Radar/Radar.wiki/papers/Qi17cvpr_PointNet.pdf:PDF},
+  groups     = {Point Sets},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Norelli23arxiv,
+  author   = {Antonio Norelli, Marco Fumero, Valentino Maiorca, Luca Moschella, Emanuele Rodolà, Francesco Locatello},
+  title    = {ASIF: Coupled Data Turns Unimodal Models to Multimodal without Training},
+  year     = {2022},
+  abstract = {Proceedings of the International Conference on Machine Learning 2023},
+  file     = {:papers/Norelli23arxiv.pdf:PDF},
+  groups   = {Semantic Space, TOREAD, clip4radar, AID-401},
+  keywords = {Machine Learning, ICML},
+  priority = {prio2},
+}
+
+@InProceedings{Zhai22arxiv,
+  author   = {Xiaohua Zhai and Xiao Wang and Basil Mustafa and Andreas Steiner and Daniel Keysers and Alexander Kolesnikov and Lucas Beyer},
+  title    = {LiT : Zero-Shot Transfer with Locked-image text Tuning},
+  year     = {2022},
+  number   = {re-},
+  abstract = {(Data: yfcc100m subset) (Data: private)},
+  file     = {:papers/Zhai22arxiv-LiT.pdf:PDF},
+  groups   = {Semantic Space, TOREAD, clip4radar, AID-401},
+  priority = {prio2},
+}
+
+@InProceedings{Thomas19iccv,
+  author     = {Hugues Thomas and Charles R. Qi and Jean-Emmanuel Deschaud and Beatriz Marcotegui},
+  booktitle  = {IEEE International Conference on Computer Vision},
+  title      = {KPConv: Flexible and Deformable Convolution for Point Clouds},
+  year       = {2019},
+  abstract   = {are coupled with corresponding features like colors. In this
+work, we will always consider a point cloud as those two el-},
+  comment    = {Defines a "convolution kernel" on pointclouds. A kernel consists of a number of "anchor points", each with associated weights matrix (transferring input feature vector into output feature vector). Convolution at a point x is computed based on its set of neighbors N_x as a sum of neighbor feature vectors each transformed with a weights matrix which is interpolated linearly (up to a max influence radius) among the anchor points (with "kernel" centered at x). 
+
+"Deformable KPConv" learns in addition to the weights matrices, offsets for the anchor points.},
+  file       = {:/home/fey1tv/Radar/Radar.wiki/papers/Thomas19iccv-KPConv.pdf:PDF},
+  groups     = {Point Sets, Sparse},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Graham17arxiv,
+  author     = {Benjamin Graham and Laurens van der Maaten},
+  title      = {Submanifold Sparse Convolutional Networks},
+  year       = {2017},
+  comment    = {Propose two novel formulations for convolution operators for sparse data (and main contribution - is implementation). They give the same accuracy but reduce computation and memory requirements.
+
+Regular sparse convolution works exactly as normal convolution, but accepts sparse inputs and assumes missing grid elements are 0. 
+Submanifold sparse convolution (Valid Sparse Convolution) in addition only returns results for valid cells (i.e. where kernel is centered on a valid cell), thus preserving input sparsity.},
+  file       = {:/home/fey1tv/Radar/Radar.wiki/papers/Graham17arxiv.pdf:PDF},
+  groups     = {Sparse},
+  readstatus = {read},
+}
+
+@InProceedings{Graham15arxiv,
+  author = {Ben Graham},
+  title  = {Sparse 3D convolutional neural networks},
+  year   = {2015},
+  file   = {:/home/fey1tv/dev/papers/Graham15arxiv.pdf:PDF},
+  groups = {Sparse},
+}
+
+@InProceedings{Shen22arxiv,
+  author = {Kendrick Shen and Robbie Jones and Ananya Kumar and Sang Michael and Xie*},
+  title  = {Connect, Not Collapse: Explaining Contrastive Learning for Unsupervised Domain Adaptation},
+  year   = {2022},
+  file   = {:/home/fey1tv/dev/papers/Shen22arxiv.pdf:PDF},
+  groups = {Contrastive Learning, TOREAD},
+}
+
+@InProceedings{HaoChen21arxiv,
+  author = {Jeff Z. HaoChen and Colin Wei and Adrien Gaidon and Tengyu Ma},
+  title  = {Provable Guarantees for Self-Supervised Deep Learning with Spectral Contrastive Loss},
+  year   = {2021},
+  file   = {:/home/fey1tv/dev/papers/HaoChen22arxiv.pdf:PDF},
+  groups = {Contrastive Learning, TOREAD},
+}
+
+@Article{Minderer22arxiv,
+  author     = {Matthias Minderer and Alexey Gritsenko and Austin Stone and Maxim Neumann and Dirk Weissenborn and Alexey Dosovitskiy and Aravindh Mahendran and Anurag Arnab and Mostafa Dehghani and Zhuoran Shen},
+  title      = {Simple Open-Vocabulary Object Detection with Vision Transformers},
+  year       = {2022},
+  number     = {contribution.},
+  abstract   = {Combining simple architectures with large-scale pre-training
+has led to massive improvements in image classification. For object de-
+tection, pre-training and scaling approaches are less well established,
+especially in the long-tailed and open-vocabulary setting, where train-
+ing data is relatively scarce. In this paper, we propose a strong recipe
+for transferring image-text models to open-vocabulary object detection.
+We use a standard Vision Transformer architecture with minimal mod-
+ifications, contrastive image-text pre-training, and end-to-end detection
+fine-tuning. Our analysis of the scaling properties of this setup shows
+that increasing image-level pre-training and model size yield consistent
+improvements on the downstream detection task. We provide the adap-
+tation strategies and regularizations needed to attain very strong per-
+formance on zero-shot text-conditioned and one-shot image-conditioned
+object detection. Code and models are available on GitHub1.},
+  comment    = {Owl-Vit},
+  file       = {:/home/fey1tv/dev/papers/Minderer22arxiv-Owl-ViT.pdf:PDF},
+  groups     = {clip4radar, TOREAD, Radar Paper Club, Paper Interviews},
+  keywords   = {open-vocabulary detection, transformer, vision transformer, zero-shot detection, image-conditioned detection, one-shot object detec- tion, contrastive learning, image-text models, foundation models, CLIP},
+  priority   = {prio1},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Garrido22arxiv,
+  author = {ON THE and DUALITY BETWEEN and CONTRASTIVE AND and NON- and CONTRASTIVE SELF-SUPERVISED and LEARNING},
+  title  = {On the duality between contrastive and non-contrastive self-supervised learning},
+  year   = {2022},
+  file   = {:/home/fey1tv/dev/papers/Garrido22arxiv.pdf:PDF},
+  groups = {Contrastive Learning, TOREAD},
+}
+
+@InProceedings{Li22arxiv,
+  author  = {Liunian Harold Li and Pengchuan Zhang and Haotian Zhang and Jianwei Yang and Chunyuan Li and Yiwu Zhong and Lijuan Wang and Lu Yuan and Lei Zhang and Jenq-Neng Hwang and Kai-Wei Chang and Jianfeng Gao},
+  title   = {Grounded Language-Image Pre-training},
+  year    = {2022},
+  comment = {GLIP},
+  file    = {:papers/Li22arxiv-GLIP.pdf:PDF},
+  groups  = {clip4radar, Semantic Space, TOREAD},
+}
+
+@InProceedings{Zhong21arxiv,
+  author   = {Yiwu Zhong and Jianwei Yang and Pengchuan Zhang and Chunyuan Li and Noel Codella and Liunian Harold Li and Luowei Zhou and Xiyang Dai and Lu Yuan and Yin Li and Jianfeng Gao},
+  title    = {RegionCLIP: Region-based Language-Image Pretraining},
+  year     = {2021},
+  abstract = {Cropped image regions recognized by CLIP Image classification (ImageNet)
+Region classification (LVIS)},
+  file     = {:/home/fey1tv/dev/papers/Zhong21arxiv-RegionCLIP.pdf:PDF},
+  groups   = {clip4radar, Semantic Space, TOREAD},
+  priority = {prio1},
+}
+
+@InProceedings{Najibi20arxiv,
+  author   = {Mahyar Najibi and Guangda Lai and Abhijit Kundu and Zhichao Lu and Vivek Rathod},
+  title    = {DOPS: Learning to Detect 3D Objects and Predict their 3D Shapes},
+  year     = {2020},
+  comment  = {Cited by Lars in reference to 3D conv implementations.},
+  file     = {:/home/fey1tv/dev/papers/Najibi20arxiv-DOPS.pdf:PDF},
+  groups   = {AID-401, Sparse, TOREAD},
+  priority = {prio2},
+}
+
+@InProceedings{Lu22arxiv,
+  author = {Jiasen Lu and ∗Christopher Clark and Rowan Zellers},
+  title  = {UNIFIED-IO: A UNIFIED MODEL FOR VISION, LANGUAGE, AND MULTI-MODAL TASKS},
+  year   = {2022},
+  file   = {:/home/fey1tv/dev/papers/Lu22arxiv-UnifiedIO.pdf:PDF},
+  groups = {clip4radar, TOREAD},
+}
+
+@InProceedings{Lang19arxiv,
+  author     = {Alex H. Lang and Sourabh Vora and Holger Caesar and Lubing Zhou and Jiong Yang and Oscar Beijbom},
+  title      = {PointPillars: Fast Encoders for Object Detection from Point Clouds},
+  year       = {2019},
+  abstract   = {All classes Car
+66 86 C},
+  comment    = {Perform object detection on Lidar. Method: they discretize planar axes (x and y) to obtain a set of point pillars. They then process points from each pillar with a PointNet variant, finally max-pooling the features from all points into a single feature per column. They then process the resulting BEV with 2D methods.},
+  file       = {:papers/Lang19arxiv-PointPillars.pdf:PDF},
+  groups     = {Point Sets},
+  readstatus = {read},
+}
+
+@InProceedings{Zhao09icra,
+  author     = {Huijing Zhao and Quanshi Zhang and Masaki Chiba and Ryosuke Shibasaki and Jinshi Cui and Hongbin Zha},
+  booktitle  = {2009 IEEE International Conference on Robotics and Automation Kobe International Conference Center Kobe, Japan, May 12-17, 2009},
+  title      = {Moving object classification using horizontal laser scan data},
+  year       = {2009},
+  number     = {is},
+  publisher  = {IEEE},
+  abstract   = {2009 IEEE International Conference on Robotics and Automation;2009; ; ;10.1109/ROBOT.2009.5152347},
+  comment    = {Formulates a bayesian classification scheme using per-2D lidar point features (reflection points assumed independent), predominantly based on projections to "main object axes", relying on correct estimation of said axes (which they do using spectral decomposition, K-L transform), which in turn relies on correct object segmentation and may be arbitrarily wrong in the presence of outliers.},
+  file       = {:C\:/Users/fey1tv/dev/documents/papers/Zhao09icra.pdf:PDF},
+  groups     = {L-Shape Matching},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Brosseit16ivs,
+  author     = {Peter Brosseit and Matthias Rapp and Nils Appenrodt and Jurgen Dickmann},
+  booktitle  = {Intelligent Vehicles Symposium},
+  title      = {Probabilistic rectangular-shape estimation for extended object tracking},
+  year       = {2016},
+  publisher  = {IEEE},
+  abstract   = {2016 IEEE Intelligent Vehicles Symposium (IV);2016; ; ;10.1109/IVS.2016.7535398},
+  comment    = {Formulates a measurement generative model and estimates bounding box parameters using maximum likelihood, possibly filtering over time. An underlying assumption is that in fact the measured pointcloud follows the probabilistic generative model, outliers due to imprecise vehicle segmentation can lead to arbitrary failures e.g. reflects from other vehicles or elements of the environment in the segmentation would lead to incorrect vehicle dimensions and / or orientation estimate.},
+  file       = {:papers/Brosseit16ivs.pdf:PDF},
+  groups     = {L-Shape Matching},
+  readstatus = {skimmed},
+}
+
+@InProceedings{MacLachlan06itsc,
+  author    = {R. MacLachlan and C. Mertz},
+  title     = {Tracking of Moving Objects from a Moving Vehicle Using a Scanning Laser Rangefinder},
+  year      = {2006},
+  publisher = {IEEE},
+  abstract  = {2006 IEEE Intelligent Transportation Systems Conference;2006; ; ;10.1109/ITSC.2006.1706758},
+  file      = {:C\:/Users/fey1tv/dev/documents/papers/MacLachlan06itsc.pdf:PDF},
+  groups    = {L-Shape Matching},
+}
+
+@InProceedings{Ramzi22arxiv,
+  author   = {Ramzi, Elias and Audebert, Nicolas and Thome, Nicolas and Rambour, Clément and Bitot, Xavier},
+  title    = {Hierarchical Average Precision Training for Pertinent Image Retrieval},
+  year     = {2022},
+  month    = {7},
+  abstract = {, those metrics, are limited to binary labels and do not take into account errors' severity. This paper introduces a new hierarchical AP training method for pertinent image retrieval (HAPPIER). HAPPIER is based on a new H-AP metric, which leverages a concept hierarchy to refine AP by integrating errors' importance and better evaluate rankings. To train deep models with H-AP, we carefully study the problem's structure and design a smooth lower bound surrogate combined with a clustering loss that ensures consistent ordering. Extensive experiments on 6 datasets show that HAPPIER significantly outperforms state-of-the-art methods for hierarchical retrieval, while being on par with the latest approaches when evaluating fine-grained ranking performances. Finally, we show that HAPPIER leads to better organization of the embedding space, and prevents most severe failure cases of non-hierarchical methods. Our code is publicly available at https://github.com/elias-ramzi/HAPPIER.},
+  date     = {2022-07-22},
+  day      = {22},
+  eprint   = {arXiv:2207.04873v2[cs.CV]},
+  file     = {:C\:/Users/fey1tv/dev/documents/papers/Ramzi22arxiv-hAP.pdf:PDF},
+  groups   = {TOREAD, AID-401},
+  keywords = {Hierarchical Image Retrieval, Hierarchical Average Precision, Ranking},
+  priority = {prio2},
+}
+
+@InProceedings{Drews22iros,
+  author     = {Florian Drews and Di Feng and Florian Faion and Lars Rosenbaum and Michael Ulrich and Claudius Glaser},
+  booktitle  = {2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) October 23-27, 2022, Kyoto, Japan},
+  title      = {DeepFusion: A Robust and Modular 3D Object Detector for Lidars, Cameras and Radars},
+  year       = {2022},
+  publisher  = {IEEE},
+  abstract   = {2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS);2022; ; ;10.1109/IROS47612.2022.9981778},
+  comment    = {They have a separate detection module per-modality, writing detection results into latent BEV. Then perform FPN-based detection on the BEV. 
+
+26-02-2023 Could try to further extend by enforcing identical representations for the same scene in the BEV overlap b/w sensors, which would provide a common language and allow consecutive sensors (e.g. differing calibration, etc.) to train for the same representation (not touching the subsequent detection module).},
+  file       = {:papers/Drews22iros-DeepFusion.pdf:PDF},
+  groups     = {Bosch Papers, AID-401, NuScenes, LH5, Object Detection, Radar Pointcloud, RGB, Lidar},
+  readstatus = {skimmed},
+}
+
+@Article{Engel21access,
+  author    = {Nico Engel, Vasileios Belagiannis, Klaus Dietmayer},
+  journal   = {Open Access},
+  title     = {Point Transformer},
+  year      = {2021},
+  abstract  = {IEEE Access; ;PP;99;10.1109/ACCESS.2021.3116304},
+  doi       = {10.1109/ACCESS.2021.3116304,},
+  file      = {:/home/fey1tv/dev/papers/Engel21access-PointTransformer.pdf:PDF},
+  groups    = {AID-401, TOREAD, Transformers},
+  publisher = {IEEE},
+}
+
+@InProceedings{Fan21cvpr,
+  author       = {Lue Fan and Ziqi Pang and Tianyuan Zhang},
+  booktitle    = {CVPR},
+  title        = {Embracing Single Stride 3D Object Detector with Sparse Transformer},
+  year         = {2021},
+  organization = {CASIA UIUC and CMU},
+  file         = {:/home/fey1tv/dev/papers/Fan21cvpr-SST.pdf:PDF},
+  groups       = {Point Sets, Transformers, TOREAD},
+}
+
+@InProceedings{Graham18cvpr,
+  author    = {Benjamin Graham and Martin Engelcke and Laurens van der Maaten},
+  booktitle = {2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  title     = {3D Semantic Segmentation with Submanifold Sparse Convolutional Networks},
+  year      = {2018},
+  publisher = {IEEE},
+  abstract  = {2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition;2018; ; ;10.1109/CVPR.2018.00961},
+  doi       = {10.1109/CVPR.2018.00961},
+  file      = {:/home/fey1tv/dev/papers/Graham18cvpr.pdf:PDF},
+  groups    = {AID-401, TOREAD, Sparse,},
+}
+
+@InProceedings{Hendrycks16arxiv,
+  author       = {Dan Hendrycks and Kevin Gimpel},
+  title        = {Gaussian Error Linear Units (GELUs)},
+  year         = {2016},
+  organization = {University of California and Berkeley Toyota Technological Institute at Chicago},
+  comment      = {Activation function is $ x\Phi(x) $ when \Phi(x) the Gaussian cumulative distribution function.},
+  file         = {:/home/fey1tv/dev/papers/Hendrycks20arxiv-GELU.pdf:PDF},
+  groups       = {Fundamentals,},
+  readstatus   = {skimmed},
+}
+
+@InProceedings{Hess22arxiv,
+  author     = {Georg Hess and 2 Adam Tonderski},
+  title      = {LidarCLIP or: How I Learned to Talk to Point Clouds},
+  year       = {2022},
+  comment    = {Train a Lidar point cloud encoder to match CLIP embeddings of the corresponding images (using a frozen CLIP image encoder). As a result, obtain text <-> Lidar pointcloud connection, allowing to glimpse into the semantic content of lidar measurements.
+
+They explore text retrieval w.r.t presence of certain object categories (pedestrian, car, truck, cyclist) and scene conditions (night, day, sunny, rainy, busy, empty) as well as more fine-grained elements (black car vs. white car, bright and sunny, sunrise, headlights). 
+They also explore 0-shot transfer from ONCE to nuScenes. 
+
+Report that using Euclidean distance to CLIP embeddings worked better (+10% retrieval precision) than cosine similarity (even though retrieval is based on cosine similarity).},
+  file       = {:/home/fey1tv/dev/papers/Hess22arxiv-LidarCLIP.pdf:PDF},
+  groups     = {ONCE, clip4radar, Semantic Space, Radar Paper Club},
+  readstatus = {read},
+  url        = {https://github.com/atonderski/lidarclip},
+}
+
+@InProceedings{Niederloehner22arxiv,
+  author     = {Daniel Niederlöhner and Michael Ulrich and Sascha Braun and Daniel Köhler and Florian Faion and Claudius Gläser and André Treptow and Holger Blume},
+  title      = {Self-Supervised Velocity Estimation for Automotive Radar Object Detection Networks},
+  year       = {2022},
+  publisher  = {IEEE},
+  abstract   = {This paper presents a method to learn the Carte-},
+  comment    = {They associate radar (point) detections to ground truth detections to learn to predict ground velocity. Training is split into 2 stages: in the first stage, they only learn detection. In the second stage, the learned detection is refined to associate among detections from close timesteps (using euclidean distance) and to estimate velocity (constant velocity assumption).
+
+Seven consecutive scans of nuScenes radar data are used per frame. All five radar sensors are used and augmented with random rotation of the pcl of 
+ degrees.
+
+Velocity regression only trained for class car.
+
+> However, our model sometimes tends to predict an inaccurate velocity estimate (direction and absolute value) when only a few radar > points are measured on an object},
+  doi        = {ng},
+  file       = {:C\:/Users/fey1tv/dev/documents/papers/Niederlohner22arxiv-SelfSupervised.pdf:PDF},
+  groups     = {Bosch Papers, AID-401, NuScenes, LH5, Radar Pointcloud, Object Detection},
+  readstatus = {read},
+}
+
+@InProceedings{Qi17nips,
+  author     = {Charles R. Qi and Li Yi and Hao Su and Leonidas J. Guibas and Stanford University},
+  booktitle  = {Conference on Neural Information Processing Systems},
+  title      = {PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space},
+  year       = {2017},
+  comment    = {Apply PointNet recursively on overlapping subsets of points to obtain increasingly higher-level representations. Subsets of points are chosen by partitioning according to Euclidean distance to centroids chosen using Farthest Point Sampling (FPS). Further, they propose to process subsets on multiple abstraction layers, under one of two schemes:
+
+- Multi-Scale Grouping (MSG) - repeat feature calculation for multiple subsets of points (various scales).
+
+- Multi-Resolution Grouping (MRS) At each layer, calculate and combine (concatenate) two features: one using the high-level representation from the previous level, the other using all the raw points belonging to the current cluster. This is computationally more efficient than MSG because it
+
+	> "avoids the feature extraction in large scale neighborhoods at lowest levels."
+
+For segmentation, multi-dimensional features are interpolated for each point, weighted by the inverse Euclidean metric (which might introduce feature "leakage" across spatial structures).},
+  file       = {:/home/fey1tv/Radar/Radar.wiki/papers/Qi17nips_PointNet++.pdf:PDF},
+  groups     = {Point Sets},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Scheiner20cvpr,
+  author    = {Nicolas Scheiner and Florian Kraus and Fangyin Wei and Buu Phan},
+  booktitle = {CVPR},
+  title     = {Seeing Around Street Corners: Non-Line-of-Sight Detection and Tracking In-the-Wild Using Doppler Radar},
+  year      = {2020},
+  abstract  = {Visible},
+  file      = {:/home/fey1tv/dev/papers/Scheiner20cvpr.pdf:PDF},
+  groups    = {AID-401, TOREAD},
+}
+
+@InCollection{Schumann20tiv,
+  author    = {Ole Schumann and Jakob Lombacher and Markus Hahn and Christian Wohler and Jurgen Dickmann},
+  booktitle = {Transactions on Intelligent Vehicles},
+  publisher = {IEEE},
+  title     = {Scene Understanding With Automotive Radar},
+  year      = {2020},
+  abstract  = {IEEE Transactions on Intelligent Vehicles;2020;5;2;10.1109/TIV.2019.2955853},
+  file      = {:/home/fey1tv/dev/papers/Schumann20tiv.pdf:PDF},
+  groups    = {AID-401, TOREAD},
+  keywords  = {Machine learning, radar, grid map, point cloud, object segmentation, autonomous driving, classification, automotive},
+}
+
+@Article{Ulrich22arxiv,
+  author     = {Michael Ulrich and Sascha Braun and Daniel Köhler and Daniel Niederlöhner and Florian Faion and Claudius Gläser},
+  title      = {Improved Orientation Estimation and Detection with Hybrid Object Detection Networks for Automotive Radar},
+  year       = {2022},
+  abstract   = {This paper presents novel hybrid architectures
+that combine grid- and point-based processing to improve the
+detection performance and orientation estimation of radar-
+based object detection networks. Purely grid-based detection
+models operate on a bird’s-eye-view (BEV) projection of the
+input point cloud. These approaches suffer from a loss of
+detailed information through the discrete grid resolution. This
+applies in particular to radar object detection, where relatively
+coarse grid resolutions are commonly used to account for the
+sparsity of radar point clouds. In contrast, point-based models
+are not affected by this problem as they continuously process
+point clouds. However, they generally exhibit worse detection point cloud point-based grid grid-based OBBs
+performances than grid-based methods. model rendering CNN detector},
+  comment    = {Object detector acting on a (radar) pointcloud. Projects the points to a BEV grid (either using GNN or "KPConvPillars"). Then processes using FPN + multiple detection heads - one per a subset of similar classes, potentially connected to different FPN levels.
+
+1 stage detection, focal loss on the classification, L1 for the regression.},
+  doi        = {ng},
+  file       = {:papers/Ulrich22arxiv-ImprovedOrientation.pdf:PDF},
+  groups     = {Bosch Papers, Radar Paper Club, AID-401, NuScenes, LH5, Object Detection, Radar Pointcloud},
+  publisher  = {IEEE},
+  readstatus = {read},
+}
+
+@InProceedings{Wu18arxiv,
+  author   = {Yuxin Wu and Kaiming He},
+  title    = {Group Normalization},
+  year     = {2018},
+  abstract = {36
+Batch Norm},
+  file     = {:/home/fey1tv/dev/papers/Wu18arxiv-GroupNormalization.pdf:PDF},
+  groups   = {Fundamentals},
+}
+
+@InProceedings{Wu21arxiv,
+  author   = {Kan Wu and Houwen Peng and Minghao Chen and Jianlong Fu and Hongyang Chao},
+  title    = {Rethinking and Improving Relative Position Encoding for Vision Transformer},
+  year     = {2021},
+  abstract = {There are mainly two classes of methods to encode po-
+sitional representations for transformer. One is absolute,},
+  file     = {:/home/fey1tv/dev/papers/Wu21arxiv.pdf:PDF},
+  groups   = {Transformers, TOREAD},
+}
+
+@InCollection{Zeller23ral,
+  author     = {Matthias Zeller and Jens Behley and Michael Heidingsfeld and Cyrill Stachniss},
+  booktitle  = {Robotics and Automation Letters},
+  publisher  = {IEEE},
+  title      = {Gaussian Radar Transformer for Semantic Segmentation in Noisy Radar Data},
+  year       = {2023},
+  abstract   = {IEEE Robotics and Automation Letters;2023;8;1;10.1109/LRA.2022.3226030},
+  comment    = {They do semantic segmentation of moving objects (also stationary at the moment?), single-scan. Input: sparse pointcloud (doppler, RCS, additional features?), output: semantic label for each point (tracklet ID?)
+
+> "Instead of aggregating multiple scans to densify the point clouds,
+we propose a novel approach based on the self-attention mecha-
+nism to accurately perform sparse, single-scan segmentation."
+
+Construct a U-net-like architecture for pointclouds (following Point Transformer, Zhao and Koltun 21'). 
+
+Downsampling layer: select points using Farthest Point Sampling (as in PointNet), compute features by first regressing attention matrix to the entire pointcloud, then only sum weighted features for  kNearest Neighbors (weights are normalized over the entire pointcloud). 
+
+Upsampling layer: Collect features from the entire pointcloud by predicting the attention matrix (as before, normalize weights over the pointcloud). 
+
+Gaussian attention layer: like normal attention, but agreggating with "a Gaussian" instead of softmax weights. It is not mentioned how the latter is normalized or centered (standard?). 
+
+Learned positional encoding.},
+  file       = {:papers/Zeller23ral.pdf:PDF},
+  groups     = {Radar Paper Club, , AID-401, Radar Scenes},
+  keywords   = {Semantic Scene Understanding, Deep Learning Methods},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Zhang22arxiv,
+  author     = {Haotian Zhang and Pengchuan Zhang and Xiaowei Hu and Yen-Chun Chen and Liunian Harold Li and Xiyang Dai and Lijuan Wang and Lu Yuan and Jenq-Neng Hwang and Jianfeng Gao},
+  title      = {GLIPv2: Unifying Localization and VL Understanding},
+  year       = {2022},
+  comment    = {Paper by UCLA, Meta and Microsoft. 
+
+Contrary to GLIPv1:
+1) Proposes a unified model for localization and VL understanding
+2) inter-image region-word contrastive loss
+
+
+Architecture: image, text encoded separately, then fused separate encoding are produced by a fusion encoder 
+
+"Classification-to-matching trick" (referring to the use of CLIP for classification)},
+  file       = {:/home/fey1tv/dev/papers/Zhang22arxiv-GLIPv2.pdf:PDF},
+  groups     = {clip4radar, Semantic Space},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Zhao20arxiv,
+  author       = {Hengshuang Zhao and Jiaya Jia and Vladlen Koltun},
+  title        = {Exploring Self-attention for Image Recognition},
+  year         = {2020},
+  organization = {UHK and Intel Labs},
+  abstract     = {the convolution has undoubtedly been effective as the ba-
+sic operator in modern image recognition, it is not without},
+  file         = {:/home/fey1tv/dev/papers/Zhao20arxiv-Attention_Image_Recognition.pdf:PDF},
+  groups       = {Transformers, TOREAD},
+}
+
+@InProceedings{Zhao20iccv,
+  author = {Hengshuang Zhao and 2 Li Jiang3 Jiaya Jia3 Philip Torr1 Vladlen Koltun},
+  title  = {Point Transformer},
+  year   = {2020},
+  file   = {:C\:/Users/fey1tv/dev/documents/papers/Zhao20iccv.pdf:PDF},
+  groups = {TOREAD, Point Sets, AID-401},
+}
+
+@InProceedings{Lin17iccv,
+  author   = {Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, Piotr Dollar},
+  title    = {Focal Loss for Dense Object Detection},
+  year     = {2017},
+  abstract = {2017 IEEE International Conference on Computer Vision},
+  comment  = {1-stage detector based on FPN and Fast-RCNN. Paper novelty is an adaptive loss for classification "Focal Loss" addressing class imbalance background vs object in 1 stage object detectors - cross entropy with a weighting factor of $(1-p_t)^\gamma$, where $p_t$ is the confidence assigned to ground truth class. This factor weights down loss for confidently correct predictions, thus doing implicit adaptive class balancing - in particular for easy background pixels. 
+
+1-stage detection done by sliding fully convolutional small classification and box regression networks over FPN feature maps, on multiple levels, doing classification and regression for 3 aspect ratio of anchors at 3 scales (in total 9 anchors for each FPN level). Anchors assigned to ground-truth boxes at IoU threshold 0.5. Box regression targets are computed as the offset between each anchor and its assigned object box. Focal loss for classification, L1 for regression. AP on COCO test-dev nearly identical to Fast-RCNN with much simpler training procedure and \approx 40% lower inference times.
+
+Possible qs for interview (also to clarify for oneself..):
+Q1. What is the main contribution 
+A1: Focal Loss, a classification loss addressing extreeme background / foreground class imbalance in the 1-stage detector setting.
+
+Q2: How does focal loss work? 
+A2: Need to look at the actual formula. For confidently correct prediction, the loss gets weighted down more aggressively (in a nonlinear way). 
+
+Q: What is the difference w.r.t. example weighting scheme:
+A: Weighting is used in conjunction with the focal loss (FL) to provide good initialization. The difference is that FL is adaptive, in particular - nonlinear. 
+
+Q: What is the overall loss in practice? How is it computed? How are predictions computed?
+A: Loss consists of classification loss (FL) and box regression loss. Box regression is done as correction w.r.t. a set of anchors. Need to describe a forward pass including association to ground truth (greedy). 
+
+Q: Why modify the anchor assignmnet rule from Faster RCNN?
+A: Target assignment is done for IoU > 0.5. Faster RCNN paper has a more elaborate target assignment scheme: either IoU>0.7 or else the prediction with maximum IoU with detection box (IoU 0.1 minimum). Simpler assignment scheme in RetinaNet is probably because predictions are dense, unlike in the 2-stage approach. 
+
+Q: Why this initialization bias? 
+A: Initialization bias stated in the paper for the last layer is fed into sigmoid (also stated in the paper) to get prediction $\pi$ in the output on average assuming average of 0 for the linear term.
+
+Q: What is AP? How is it computed? 
+A: Area under smoothed precision graph for multiple association thresholds.},
+  file     = {:C\:/Users/fey1tv/dev/documents/papers/Lin17iccv-FocalLoss.pdf:PDF},
+  groups   = {RGB, Object Detection, TOREAD, Paper Interviews},
+}
+
+@InProceedings{Ciarambino21dcs,
+  author    = {Marco Ciarambino and Yung-Yu Chen and Niklas Peinecke},
+  booktitle = {Defense + Commercial Sensing},
+  title     = {A game engine-based millimeter wave radar simulation},
+  year      = {2021},
+  comment   = {Describe a radar pointcloud simulation based on AirSim},
+  groups    = {Simulators, Radar Pointcloud},
+}
+
+@InProceedings{Girshick13cvpr,
+  author     = {Ross Girshick and Jeff Donahue and Trevor Darrell and Jitendra Malik and UC Berkeley},
+  title      = {Rich feature hierarchies for accurate object detection and semantic segmentation Tech report (v5)},
+  year       = {2013},
+  abstract   = {R-CNN: Regions with CNN features
+warped region aeroplane? no.},
+  file       = {:C\:/Users/fey1tv/dev/documents/papers/Gischirk13cvpr-RCNN.pdf:PDF},
+  groups     = {RGB, Object Detection, TOREAD},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Lin17cvpr,
+  author     = {Tsung-Yi Lin, Piotr Dollár, Ross Girshick, Kaiming He, Bharath Hariharan, Serge Belongie},
+  booktitle  = {2017 IEEE Conference on Computer Vision and Pattern Recognition},
+  title      = {Feature Pyramid Networks for Object Detection},
+  year       = {2017},
+  publisher  = {IEEE},
+  abstract   = {2017 IEEE Conference on Computer Vision and Pattern Recognition},
+  doi        = {10.1109/CVPR.2017.106},
+  file       = {:C\:/Users/fey1tv/dev/documents/papers/Lin17cvpr-FPN.pdf:PDF},
+  groups     = {RGB, Object Detection,},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Ren15pami,
+  author     = {Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun},
+  title      = {Faster R-CNN: Towards Real-Time and Object and Detection with Region and Proposal Networks},
+  year       = {2015},
+  abstract   = {State-of-the-art object detection networks depend on region proposal algorithms to hypothesize object locations.
+Advances like SPPnet [1] and Fast R-CNN [2] have reduced the running time of these detection networks, exposing region
+proposal computation as a bottleneck. In this work, we introduce a Region Proposal Network (RPN) that shares full-image
+convolutional features with the detection network, thus enabling nearly cost-free region proposals. An RPN is a fully convolutional
+network that simultaneously predicts object bounds and objectness scores at each position. The RPN is trained end-to-end to
+generate high-quality region proposals, which are used by Fast R-CNN for detection. We further merge RPN and Fast R-CNN
+into a single network by sharing their convolutional features—using the recently popular terminology of neural networks with
+“attention” mechanisms, the RPN component tells the unified network where to look. For the very deep VGG-16 model [3],
+our detection system has a frame rate of 5fps (including all steps) on a GPU, while achieving state-of-the-art object detection
+accuracy on PASCAL VOC 2007, 2012, and MS COCO datasets with only 300 proposals per image. In ILSVRC and COCO
+2015 competitions, Faster R-CNN and RPN are the foundations of the 1st-place winning entries in several tracks. Code has been
+made publicly available.},
+  file       = {:C\:/Users/fey1tv/dev/documents/papers/Ren15pami-Faster_RCNN.pdf:PDF},
+  groups     = {RGB, Object Detection,},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Girshick15iccv,
+  author     = {Ross Girshick},
+  booktitle  = {2015 IEEE International Conference on Computer Vision},
+  title      = {Fast R-CNN},
+  year       = {2015},
+  publisher  = {IEEE},
+  abstract   = {2015 IEEE International Conference on Computer Vision (ICCV);2015; ; ;10.1109/ICCV.2015.169},
+  doi        = {10.1109/ICCV.2015.169},
+  file       = {:C\:/Users/fey1tv/dev/documents/papers/Girshick15iccv-Fast_RCNN.pdf:PDF},
+  groups     = {RGB, Object Detection,},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Carion20arxiv,
+  author   = {Nicolas Carion and Francisco Massa and Gabriel Synnaeve and Nicolas Usunier and Alexander Kirillov and Sergey Zagoruyko},
+  title    = {End-to-End Object Detection with Transformers},
+  year     = {2020},
+  abstract = {We present a new method that views object detection as a
+direct set prediction problem. Our approach streamlines the detection
+pipeline, effectively removing the need for many hand-designed compo-
+nents like a non-maximum suppression procedure or anchor generation
+that explicitly encode our prior knowledge about the task. The main
+ingredients of the new framework, called DEtection TRansformer or
+DETR, are a set-based global loss that forces unique predictions via bi-
+partite matching, and a transformer encoder-decoder architecture. Given
+a fixed small set of learned object queries, DETR reasons about the re-
+lations of the objects and the global image context to directly output
+the final set of predictions in parallel. The new model is conceptually
+simple and does not require a specialized library, unlike many other
+modern detectors. DETR demonstrates accuracy and run-time perfor-
+mance on par with the well-established and highly-optimized Faster R-
+CNN baseline on the challenging COCO object detection dataset. More-
+over, DETR can be easily generalized to produce panoptic segmentation
+in a unified manner. We show that it significantly outperforms com-
+petitive baselines. Training code and pretrained models are available at
+https://github.com/facebookresearch/detr.},
+  file     = {:/home/fey1tv/dev/papers/Carion20arxiv-DetR.pdf:PDF},
+  groups   = {Transformers, RGB, Object Detection, TOREAD},
+  priority = {prio1},
+}
+
+@InProceedings{Dosovitskiy21iclr,
+  author    = {Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby},
+  booktitle = {ICLR},
+  title     = {An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale},
+  year      = {2021},
+  number    = {advising},
+  file      = {:/home/fey1tv/dev/papers/Dosovitskiy21iclr-ViT.pdf:PDF},
+  groups    = {Transformers, RGB, Object Detection, TOREAD},
+  priority  = {prio1},
+}
+
+@InProceedings{Liu2103,
+  author = {Ze Liu and Yutong Lin and Yue Cao and Han Hu and Yixuan Wei},
+  title  = {Swin Transformer: Hierarchical Vision Transformer using Shifted Windows},
+  year   = {2103},
+  file   = {:/home/fey1tv/dev/papers/Liu21iccv-SWIN_Transformer.pdf:PDF},
+  groups = {RGB, Object Detection, TOREAD},
+}
+
+@InProceedings{Touvron20icml,
+  author    = {Hugo Touvron and Matthieu Cord and Matthijs Douze and Francisco Massa and Alexandre Sablayrolles and Herv'e J'egou},
+  booktitle = {International Conference on Machine Learning},
+  title     = {Training data-efficient image transformers \& distillation through attention},
+  year      = {2020},
+  groups    = {Object Detection, TOREAD, RGB, Transformers},
+  priority  = {prio1},
+}
+
+@InProceedings{Girshick15iccv,
+  author     = {Ross Girshick},
+  booktitle  = {2015 IEEE International Conference on Computer Vision},
+  title      = {Fast R-CNN},
+  year       = {2015},
+  publisher  = {IEEE},
+  abstract   = {2015 IEEE International Conference on Computer Vision (ICCV);2015; ; ;10.1109/ICCV.2015.169},
+  doi        = {10.1109/ICCV.2015.169},
+  file       = {:C\:/Users/fey1tv/dev/documents/papers/Girshick15iccv-Fast_RCNN.pdf:PDF},
+  groups     = {RGB, Object Detection,},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Wen23arxiv,
+  author     = {Bowen Wen and Jonathan Tremblay and Valts Blukis and Stephen Tyree and Thomas Müller and Alex Evans and Dieter Fox and Jan Kautz and Stan Birchfield},
+  title      = {BundleSDF: Neural 6-DoF Tracking and 3D Reconstruction of Unknown Objects},
+  year       = {2023},
+  abstract   = {Prior efforts often consider these two problems sepa-
+We present a near real-time (10Hz) method for 6-DoF rately. For example, neural scene representations have},
+  comment    = {They combine object+environment tracking using SLAM with learning neural SDF (as concurrent processes). 
+Main theoretical contribution is usage of point projection distance to SDF in the SLAM objective. In the inverse direction, SLAM poses are taken as-is. 
+Seems that they need to assume good per-frame segmentation (on top of segmentation in the first frame to initialize tracked object mask).},
+  file       = {:/home/fey1tv/dev/papers/Wen23arxiv.pdf:PDF},
+  groups     = {NERF, Volumetric Reconstruction},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Zeng23arxiv,
+  author   = {Yihan Zeng and Chenhan Jiang and Jiageng Mao and Jianhua Han and Chaoqiang Ye and Qingqiu Huang and Dit-Yan Yeung and Zhen Yang and Xiaodan Liang and Hang Xu},
+  title    = {CLIP^2: Contrastive Language-Image-Point Pretraining from Real-World Point Cloud Data},
+  year     = {2023},
+  abstract = {narios show that our learned 3D representation has great},
+  file     = {:/home/fey1tv/dev/papers/Zeng23arxiv-CLIP^2.pdf:PDF},
+  groups   = {Semantic Space, Semantic Segmentation, TOREAD},
+  priority = {prio1},
+}
+
+@InProceedings{Park22iclr,
+  author    = {Namuk Park and Songkuk Kim},
+  booktitle = {ICLR},
+  title     = {How do Vision Transformers Work?},
+  year      = {2022},
+  file      = {:/home/fey1tv/dev/papers/Park22iclr.pdf:PDF},
+  groups    = {Transformers, RGB, TOREAD},
+  priority  = {prio1},
+}
+
+@InProceedings{Radford21icml,
+  author     = {Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever},
+  title      = {Learning Transferable Visual Models From Natural Language Supervision},
+  year       = {2021},
+  abstract   = {Proceedings of the International Conference on Machine Learning 2020},
+  file       = {:/home/fey1tv/dev/papers/Radford21icml-CLIP.pdf:PDF},
+  groups     = {RGB, clip4radar, Semantic Space},
+  readstatus = {read},
+}
+
+@InProceedings{Shen23arxiv,
+  author     = {Yang Shen and Xuhao Sun and Xiu-Shen Wei},
+  title      = {Equiangular Basis Vectors},
+  year       = {2023},
+  abstract   = {𝒙𝒙 𝑥𝑥ℎ 𝑡𝑡},
+  comment    = {they define a "reference embedding vector" for each class and classify according to maximum cosine similarity. These reference vectors are initialized to be equal-maximum-angle amongst themselves and used as training targets. 
+I wonder - how different is it in practice from contrastive learning, with ground truth for some of the samples? In particular, I guess these reference vectors can be learned in the process of training, for classes of interest? 
+Actually it can probably also be done post-training for an encoder.},
+  file       = {:/home/fey1tv/dev/papers/Shen23arxiv.pdf:PDF},
+  groups     = {Contrastive Learning, Fundamentals, Semantic Space},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Yang20eccv,
+  author     = {Bin Yang and Runsheng Guo and Ming Liang and Sergio Casas and Raquel Urtasun},
+  title      = {RadarNet: Exploiting Radar for Robust Perception of Dynamic Objects},
+  year       = {2020},
+  abstract   = {We tackle the problem of exploiting Radar for perception in the
+context of self-driving as Radar provides complementary information to other
+sensors such as LiDAR or cameras in the form of Doppler velocity. The main
+challenges of using Radar are the noise and measurement ambiguities which
+have been a struggle for existing simple input or output fusion methods. To
+better address this, we propose a new solution that exploits both LiDAR and
+Radar sensors for perception. Our approach, dubbed RadarNet, features a voxel-
+based early fusion and an attention-based late fusion, which learn from data
+to exploit both geometric and dynamic information of Radar data. RadarNet
+achieves state-of-the-art results on two large-scale real-world datasets in the
+tasks of object detection and velocity estimation. We further show that exploit-
+ing Radar improves the perception capabilities of detecting faraway objects and
+understanding the motion of dynamic objects.},
+  comment    = {They early-fuse lidar and radar occupancy, then refine predicted detection velocity by "late fusion": they average over associated radar detections, where association function is learned.},
+  file       = {:/home/fey1tv/dev/papers/Yang20eccv-RadarNet.pdf:PDF},
+  groups     = {Point Sets, Radar Pointcloud, Radar Paper Club, Object Detection, Lidar},
+  keywords   = {Radar; Object Detection; Autonomous Driving},
+  readstatus = {skimmed},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-meta: grouping:
+0 AllEntriesGroup:;
+1 StaticGroup:Architectures, Layers and Losses\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Contrastive Learning\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Fundamentals\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:NERF\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Point Sets\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Sparse\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Transformers\;0\;0\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Bosch Papers\;0\;0\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Datasets\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:LH5\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:NuScenes\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:ONCE\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Radar Scenes\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Modalities\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Lidar\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Radar Pointcloud\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Radar Spectra\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:RGB\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Paper Interviews\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Projects\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:AID-401\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:clip4radar\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:L-Shape Matching\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Radar Paper Club\;0\;0\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Semantic Space\;0\;0\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Simulators\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Tasks\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Object Detection\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Semantic Segmentation\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Volumetric Reconstruction\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:TOREAD\;0\;1\;0x8a8a8aff\;\;\;;
+}
