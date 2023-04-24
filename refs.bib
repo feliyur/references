@@ -904,7 +904,7 @@ Q: In multiple places the authors mention that "the conventional residual module
 A: Because it's local averaging.},
   doi       = {10.1049/ipr2.12669},
   file      = {:../papers/Zhang22iip-RFCTNet.pdf:PDF},
-  groups    = {Zhang22iip-deraining, Paper Interviews},
+  groups    = {Zhang22iip-deraining, Paper Interviews, TOREAD},
   publisher = {Institution of Engineering and Technology ({IET})},
 }
 
@@ -914,7 +914,7 @@ A: Because it's local averaging.},
   year     = {2022},
   abstract = {1x1 Conv(·) output},
   file     = {:papers/Li22pami-Contextual_Transformer.pdf:PDF},
-  groups   = {Zhang22iip-deraining},
+  groups   = {Zhang22iip-deraining, TOREAD},
 }
 
 @InProceedings{Zhou21cvpr,
@@ -927,7 +927,7 @@ A: Because it's local averaging.},
 Criticism / Questions: 
  - They can compute importance w.r.t. previous dataset, but what happens for increasingly new data? Do they need to retain all importance from previous datasets, or can they update performance incrementally? Performance is changed though after retraining..},
   file       = {:/home/fey1tv/dev/documents/references/papers/Zhou21cvpr-PIGWM.pdf:PDF},
-  groups     = {Zhang22iip-deraining},
+  groups     = {Zhang22iip-deraining, TOREAD},
   readstatus = {skimmed},
 }
 
@@ -938,7 +938,7 @@ Criticism / Questions:
   publisher = {IEEE},
   abstract  = {Rain streaks, particularly in heavy rain, not only degrade visibility but alsomakemany computer vision algorithms fail to},
   file      = {:/home/fey1tv/dev/documents/references/papers/Yang20pami-SSIM.pdf:PDF},
-  groups    = {Zhang22iip-deraining},
+  groups    = {Zhang22iip-deraining, TOREAD},
 }
 
 @InProceedings{Wang04tip,
@@ -948,7 +948,71 @@ Criticism / Questions:
   publisher = {IEEE},
   abstract  = {IEEE Transactions on Image Processing;2004;13;4;10.1109/TIP.2003.819861},
   file      = {:/home/fey1tv/dev/documents/references/papers/Wang04tip-SSIM.pdf:PDF},
-  groups    = {Zhang22iip-deraining},
+  groups    = {Zhang22iip-deraining, TOREAD},
+}
+
+@InProceedings{Kirillov23arxiv,
+  author   = {Alexander Kirillov and Eric Mintun and Nikhila Ravi and Hanzi Mao and Chloe Rolland and Laura Gustafson and Tete Xiao and Spencer Whitehead and Alexander C. Berg and Wan-Yen Lo and Piotr Dollár and Ross Girshick},
+  title    = {Segment Anything},
+  year     = {2023},
+  abstract = {matching in some cases) fine-tuned models [10, 21]. Empir-},
+  file     = {:/home/yuri/Research/references/papers/Kirillov23arxiv-SAM.pdf:PDF},
+  groups   = {RGB, Semantic Segmentation, TOREAD, SA-1B},
+}
+
+@InProceedings{Ruppel22ivs,
+  author    = {Felicia Ruppel and Florian Faion and Claudius Gläser and Klaus Dietmayer},
+  title     = {Transformers for Multi-Object Tracking on Point Clouds},
+  year      = {2022},
+  publisher = {IEEE},
+  abstract  = {We present TransMOT, a novel transformer-based
+end-to-end trainable online tracker and detector for point
+cloud data. The model utilizes a cross- and a self-attention
+mechanism and is applicable to lidar data in an automotive
+context, as well as other data types, such as radar. Both track
+management and the detection of new tracks are performed
+by the same transformer decoder module and the tracker state
+is encoded in feature space. With this approach, we make use
+of the rich latent space of the detector for tracking rather
+than relying on low-dimensional bounding boxes. Still, we are transformer transformer
+able to retain some of the desirable properties of traditional decoder decoder
+Kalman-filter based approaches, such as an ability to handle
+sensor input at arbitrary timesteps or to compensate frame
+skips. This is possible due to a novel module that transforms
+the track information from one frame to the next on feature-
+level and thereby fulfills a similar task as the prediction step of
+a Kalman filter. Results are presented on the challenging real-
+world dataset nuScenes, where the proposed model outperforms
+its Kalman filter-based tracking baseline. t t+1},
+  file      = {:/home/yuri/Research/references/papers/Ruppel22ivs.pdf:PDF},
+  groups    = {Transformers, Lidar, Radar Pointcloud, Object Detection},
+}
+
+@InProceedings{Ruppel22itsc,
+  author    = {Felicia Ruppel and Florian Faion and Claudius Gläser and Klaus Dietmayer},
+  title     = {Transformers for Object Detection in Large Point Clouds},
+  year      = {2022},
+  publisher = {IEEE},
+  abstract  = {We present TransLPC, a novel detection model for refined query
+large point clouds that is based on a transformer architecture. gt location gt
+While object detection with transformers has been an active
+field of research, it has proved difficult to apply such models to
+point clouds that span a large area, e.g. those that are common
+in autonomous driving, with lidar or radar data. TransLPC is
+able to remedy these issues: The structure of the transformer
+model is modified to allow for larger input sequence lengths,
+which are sufficient for large point clouds. Besides this, we
+propose a novel query refinement technique to improve de-
+tection accuracy, while retaining a memory-friendly number
+of transformer decoder queries. The queries are repositioned
+between layers, moving them closer to the bounding box they
+are estimating, in an efficient manner. This simple technique
+has a significant effect on detection accuracy, which is evaluated original query original query
+on the challenging nuScenes dataset on real-world lidar data. location location
+Besides this, the proposed method is compatible with existing
+transformer-based solutions that require object detection, e.g. a. Previous approach b. Proposed query refinement},
+  file      = {:/home/yuri/Research/references/papers/Ruppel22itsc.pdf:PDF},
+  groups    = {Transformers, Lidar, Radar Pointcloud, Object Detection},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
@@ -963,11 +1027,12 @@ Criticism / Questions:
 2 StaticGroup:Sparse\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Transformers\;0\;0\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Bosch Papers\;0\;0\;0x8a8a8aff\;\;\;;
-1 StaticGroup:Datasets\;0\;0\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Datasets\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:LH5\;0\;0\;0x8a8a8aff\;\;\;;
 2 StaticGroup:NuScenes\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:ONCE\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Radar Scenes\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:SA-1B\;0\;1\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Modalities\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Lidar\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Radar Pointcloud\;0\;0\;0x8a8a8aff\;\;\;;
