@@ -927,7 +927,7 @@ A: Because it's local averaging.},
 Criticism / Questions: 
  - They can compute importance w.r.t. previous dataset, but what happens for increasingly new data? Do they need to retain all importance from previous datasets, or can they update performance incrementally? Performance is changed though after retraining..},
   file       = {:/home/fey1tv/dev/documents/references/papers/Zhou21cvpr-PIGWM.pdf:PDF},
-  groups     = {Zhang22iip-deraining, TOREAD},
+  groups     = {Zhang22iip-deraining,},
   readstatus = {skimmed},
 }
 
@@ -1016,13 +1016,16 @@ transformer-based solutions that require object detection, e.g. a. Previous appr
 }
 
 @InProceedings{Giroux23arxiv,
-  author   = {James Giroux and Martin Bouchard and Robert Laganiere},
-  title    = {T-FFTRadNet: Object Detection with Swin Vision Transformers from Raw ADC Radar Signals},
-  year     = {2023},
-  abstract = {jects within pre-processed return signals, a step beyond tra-
+  author     = {James Giroux and Martin Bouchard and Robert Laganiere},
+  title      = {T-FFTRadNet: Object Detection with Swin Vision Transformers from Raw ADC Radar Signals},
+  year       = {2023},
+  abstract   = {jects within pre-processed return signals, a step beyond tra-
 ditional radar applications [1–4]. Pre-processing generally},
-  file     = {:papers/Giroux23arxiv.pdf:PDF},
-  groups   = {RADDet, RADIal, Radar Spectra, Object Detection},
+  comment    = {They learn to detect object directly from raw ADC using a SWIN transformer-like architecture. 
+ADC is resized into chirps / receivers ("ADC matrix"). Then instead of directly using FFT they apply a "Fourier Net" to extract a latent representation (not constrained to be equal to spectra). This is followed by 4 SWIN transformer blocks with forward skip connection (likely catering to multi-scale), followed by a "Range-Angle Decoder" layer. Report experiments on RADIal and Raddet. On RADIal, comparing to FFTRadNet they spoil AP from ~96 to ~89, and improve AR from 82 to 89, as well mIoU (but slightly spoil angle and localization precision). Use the standard loss combination of focal loss for classification, L1 for regression and BCE for free space segmentation.},
+  file       = {:papers/Giroux23arxiv.pdf:PDF},
+  groups     = {RADDet, RADIal, Radar Spectra, Object Detection},
+  readstatus = {read},
 }
 
 @InProceedings{Koehler23fusion,
@@ -1063,6 +1066,25 @@ allowing insightful analysis of its decisions.},
   priority = {prio1},
 }
 
+@InProceedings{Dai16arxiv,
+  author  = {David Ha and Andrew Dai and Quoc V. L},
+  title   = {HyperNetworks},
+  year    = {2016},
+  comment = {Train a small network to generate weights for a largest network, e.g. for MNIST classification. Probably one of the first works on the subject.},
+  file    = {:/home/fey1tv/dev/papers/Ha16arxiv.pdf:PDF},
+  groups  = {Architectures, Layers and Losses},
+}
+
+@InProceedings{Dai19macl,
+  author   = {Zihang Dai ; Zhilin Yang ; Yiming Yang ; Jaime Carbonell ; Quoc Le ; Ruslan Salakhutdinov},
+  title    = {Transformer-XL: Attentive Language Models beyond a Fixed-Length Context},
+  year     = {2019},
+  abstract = {P19-1 2019},
+  file     = {:/home/fey1tv/dev/papers/Dai19macl.pdf:PDF},
+  groups   = {Transformers, TOREAD},
+  priority = {prio2},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
@@ -1070,6 +1092,7 @@ allowing insightful analysis of its decisions.},
 1 StaticGroup:Architectures, Layers and Losses\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Contrastive Learning\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Fundamentals\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Hypernetworks\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:NERF\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Point Sets\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Sparse\;0\;1\;0x8a8a8aff\;\;\;;
