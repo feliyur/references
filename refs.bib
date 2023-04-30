@@ -1021,8 +1021,46 @@ transformer-based solutions that require object detection, e.g. a. Previous appr
   year     = {2023},
   abstract = {jects within pre-processed return signals, a step beyond tra-
 ditional radar applications [1–4]. Pre-processing generally},
-  file     = {:/home/yuri/Research/references/papers/Giroux23arxiv-T-FFTRadNet.pdf:PDF},
+  file     = {:papers/Giroux23arxiv.pdf:PDF},
   groups   = {RADDet, RADIal, Radar Spectra, Object Detection},
+}
+
+@InProceedings{Koehler23fusion,
+  author   = {Daniel Köhler and Maurice Quach and Michael Ulrich and Frank Meinl and Bastian Bischoff and Holger Blume},
+  title    = {Improved Multi-Scale Grid Rendering of Point Clouds for Radar Object Detection Networks},
+  year     = {2023},
+  abstract = {Architectures that first convert point clouds to
+a grid representation and then apply convolutional neural
+networks achieve good performance for radar-based object
+detection. However, the transfer from irregular point cloud
+data to a dense grid structure is often associated with a
+loss of information, due to the discretization and aggregation
+of points. In this paper, we propose a novel architecture, kernel point},
+  file     = {:/home/fey1tv/dev/papers/Koehler23fusion.pdf:PDF},
+  groups   = {LH5, NuScenes, Lidar, Radar Pointcloud, Object Detection, TOREAD, AID-401},
+  priority = {prio1},
+}
+
+@InProceedings{Tatarchenko23rc,
+  author   = {Maxim Tatarchenko and Kilian Rambach},
+  title    = {Histogram-based Deep Learning for Automotive Radar},
+  year     = {2023},
+  abstract = {There are various automotive applications that rely
+on correctly interpreting point cloud data recorded with radar
+sensors. We present a deep learning approach for histogram-
+based processing of such point clouds. Compared to existing
+methods, the design of our approach is extremely simple: it
+boils down to computing a point cloud histogram and passing
+it through a multi-layer perceptron. Our approach matches and
+surpasses state-of-the-art approaches on the task of automotive
+radar object type classification. It is also robust to noise that
+often corrupts radar measurements, and can deal with missing
+features of single radar reflections. Finally, the design of our
+approach makes it more interpretable than existing methods,
+allowing insightful analysis of its decisions.},
+  file     = {:/home/fey1tv/dev/papers/Tatarchenko23rc.pdf:PDF},
+  groups   = {Lidar, Radar Pointcloud, Object Detection, TOREAD},
+  priority = {prio1},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
