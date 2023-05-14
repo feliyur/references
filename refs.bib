@@ -178,17 +178,6 @@ Approach will fail in the presence of outliers, e.g. outliers selected as endpoi
   priority = {prio2},
 }
 
-@InProceedings{Zhai22arxiv,
-  author   = {Xiaohua Zhai and Xiao Wang and Basil Mustafa and Andreas Steiner and Daniel Keysers and Alexander Kolesnikov and Lucas Beyer},
-  title    = {LiT : Zero-Shot Transfer with Locked-image text Tuning},
-  year     = {2022},
-  number   = {re-},
-  abstract = {(Data: yfcc100m subset) (Data: private)},
-  file     = {:papers/Zhai22arxiv-LiT.pdf:PDF},
-  groups   = {Semantic Space, TOREAD, clip4radar, AID-401},
-  priority = {prio2},
-}
-
 @InProceedings{Thomas19iccv,
   author     = {Hugues Thomas and Charles R. Qi and Jean-Emmanuel Deschaud and Beatriz Marcotegui},
   booktitle  = {IEEE International Conference on Computer Vision},
@@ -1085,6 +1074,184 @@ allowing insightful analysis of its decisions.},
   priority = {prio2},
 }
 
+@InProceedings{Yang23arxiv,
+  author     = {Bo Yang and Ishan Khatri and Michael Happold and Chulong Chen and Motional},
+  title      = {ADCNet: End-to-end perception with raw radar ADC data},
+  year       = {2023},
+  comment    = {They propose an architecture based of FFTRadNet (RADIal paper) however operating on ADC data (contrary to a tensor of RD or RA per-receiver matrices).
+They explicitly structure and initialize the first layers of the network to compute the DFT of the input signal. 
+They subsequently jitter the weights of the DFT layers (reporting improvement in metrics) to prevent initialization to a local minimum. 
+They experiment with pre-training the backbone on the unannotated data to predict the spectra (computed using classical SP).
+Experiments on RADIal, Raddet.},
+  file       = {:/home/fey1tv/dev/papers/Yang23arxiv.pdf:PDF},
+  groups     = {RADDet, RADIal, Radar Pointcloud, Radar Spectra, AID-401, Object Detection, Semantic Segmentation},
+  readstatus = {skimmed},
+}
+
+@InProceedings{Rebut22cvpr,
+  author     = {Julien Rebut, Arthur Ouaknine, Waqas Malik, Patrick Perez},
+  title      = {Raw High-Definition Radar for Multi-Task Learning},
+  year       = {2022},
+  abstract   = {IEEE Conference on Computer Vision and Pattern Recognition},
+  comment    = {Dataset (RADIal) and architecture (FFTRadNet). 
+The dataset contains high-definition RD and RA spectra and pointclouds with around 8000 labeled frames (automatic + human controlled), 20000 overall. 
+The architecture is convolutional, based on a FPN encoder followed by a simplified custom decoder. The encoder is preceded by a "pre-encoder" which processes the repetitive patterns due to multiple transmitters in spectra using a-trous convolutions.},
+  file       = {:/home/fey1tv/dev/papers/Rebut22cvpr_RADIal.pdf:PDF},
+  groups     = {RADIal, Radar Spectra, AID-401, Object Detection, Semantic Segmentation},
+  readstatus = {read},
+}
+
+@InProceedings{Ruppel22arxiv,
+  author   = {Felicia Ruppel and Florian Faion and Claudius Gläser and Klaus Dietmayer},
+  title    = {Can Transformer Attention Spread Give Insights Into Uncertainty of Detected and Tracked Objects},
+  year     = {2022},
+  abstract = {Transformers have recently been utilized to per-
+form object detection and tracking in the context of autonomous
+driving. One unique characteristic of these models is that
+attention weights are computed in each forward pass, giving
+insights into the model’s interior, in particular, which part
+of the input data it deemed interesting for the given task.
+Such an attention matrix with the input grid is available for
+each detected (or tracked) object in every transformer decoder
+layer. In this work, we investigate the distribution of these
+attention weights: How do they change through the decoder
+layers and through the lifetime of a track? Can they be used
+to infer additional information about an object, such as a
+detection uncertainty? Especially in unstructured environments,
+or environments that were not common during training, a
+reliable measure of detection uncertainty is crucial to decide
+whether the system can still be trusted or not.},
+  file     = {:/home/fey1tv/dev/papers/Ruppel22arxiv.pdf:PDF},
+  groups   = {Transformers, Bosch Papers, Lidar, Radar Pointcloud},
+}
+
+@InProceedings{Ruppel22itsc,
+  author    = {Felicia Ruppel and Florian Faion and Claudius Gläser and Klaus Dietmayer},
+  title     = {Transformers for Object Detection in Large Point Clouds},
+  year      = {2022},
+  publisher = {IEEE},
+  abstract  = {We present TransLPC, a novel detection model for refined query
+large point clouds that is based on a transformer architecture. gt location gt
+While object detection with transformers has been an active
+field of research, it has proved difficult to apply such models to
+point clouds that span a large area, e.g. those that are common
+in autonomous driving, with lidar or radar data. TransLPC is
+able to remedy these issues: The structure of the transformer
+model is modified to allow for larger input sequence lengths,
+which are sufficient for large point clouds. Besides this, we
+propose a novel query refinement technique to improve de-
+tection accuracy, while retaining a memory-friendly number
+of transformer decoder queries. The queries are repositioned
+between layers, moving them closer to the bounding box they
+are estimating, in an efficient manner. This simple technique
+has a significant effect on detection accuracy, which is evaluated original query original query
+on the challenging nuScenes dataset on real-world lidar data. location location
+Besides this, the proposed method is compatible with existing
+transformer-based solutions that require object detection, e.g. a. Previous approach b. Proposed query refinement},
+  file      = {:/home/fey1tv/dev/papers/Ruppel22itsc.pdf:PDF},
+  groups    = {Transformers, Bosch Papers, Lidar, Radar Pointcloud},
+}
+
+@InProceedings{Ruppel22ivs,
+  author    = {Felicia Ruppel and Florian Faion and Claudius Gläser and Klaus Dietmayer},
+  title     = {Transformers for Multi-Object Tracking on Point Clouds},
+  year      = {2022},
+  publisher = {IEEE},
+  abstract  = {We present TransMOT, a novel transformer-based
+end-to-end trainable online tracker and detector for point
+cloud data. The model utilizes a cross- and a self-attention
+mechanism and is applicable to lidar data in an automotive
+context, as well as other data types, such as radar. Both track
+management and the detection of new tracks are performed
+by the same transformer decoder module and the tracker state
+is encoded in feature space. With this approach, we make use
+of the rich latent space of the detector for tracking rather
+than relying on low-dimensional bounding boxes. Still, we are transformer transformer
+able to retain some of the desirable properties of traditional decoder decoder
+Kalman-filter based approaches, such as an ability to handle
+sensor input at arbitrary timesteps or to compensate frame
+skips. This is possible due to a novel module that transforms
+the track information from one frame to the next on feature-
+level and thereby fulfills a similar task as the prediction step of
+a Kalman filter. Results are presented on the challenging real-
+world dataset nuScenes, where the proposed model outperforms
+its Kalman filter-based tracking baseline. t t+1},
+  file      = {:/home/fey1tv/dev/papers/Ruppel22ivs.pdf:PDF},
+  groups    = {Transformers, Bosch Papers, Lidar, Radar Pointcloud},
+}
+
+@InProceedings{Zhai22cvpr,
+  author     = {Xiaohua Zhai and Xiao Wang and Basil Mustafa and Andreas Steiner and Daniel Keysers and Alexander Kolesnikov and Lucas Beyer},
+  title      = {LiT : Zero-Shot Transfer with Locked-image text Tuning},
+  year       = {2022},
+  number     = {re-},
+  abstract   = {(Data: yfcc100m subset) (Data: private)},
+  comment    = {An empirical study showing that in order to best fine-tune a pre-trained vision-language model, better to fine-tune only the text encoder. Further, best performance is achieved by training the image encoder in a supervised fashion if possible, then contrastive fine-tuning.},
+  file       = {:/home/fey1tv/dev/papers/Zhai22cvpr.pdf:PDF},
+  groups     = {Semantic Space},
+  readstatus = {read},
+}
+
+@InProceedings{Hafner20iclr,
+  author    = {Danjiar Haffner, Timothy Lillicrap, Jimmy Ba, Mohammad Norouzi},
+  booktitle = {ICLR},
+  title     = {Dream to Control: Learning and Behaviors by Latent Imagination},
+  year      = {2020},
+  file      = {:/home/fey1tv/dev/papers/Hafner20iclr.pdf:PDF},
+  groups    = {RGB, Planning, POMDP, Reinforcement Learning, TOREAD},
+  priority  = {prio2},
+}
+
+@Article{Girdhar23arxiv,
+  author   = {Rohit Girdhar and Alaaeldin El-Nouby and Zhuang Liu and Mannat Singh and Kalyan Vasudev and Alwala Armand and Joulin Ishan and Misra∗},
+  title    = {IMAGEBIND: One Embedding Space To Bind Them All},
+  year     = {2023},
+  number   = {together.},
+  abstract = {1. Introduction
+We present IMAGEBIND, an approach to learn a joint A single image can bind together many experiences – an},
+  file     = {:/home/fey1tv/dev/papers/Girdhar23arxiv-ImageBind.pdf:PDF},
+  groups   = {Semantic Space},
+  priority = {prio1},
+}
+
+@InProceedings{Yang22arxiv,
+  author   = {Greg Yang, Edward J. Hu, Igor Babuschkin, Szymon Sidor, Xiaodong Liu, David Farhi, Nick Ryder, Jakub Pachocki, Weizhu Chen, Jianfeng Gao},
+  title    = {Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer},
+  year     = {2022},
+  file     = {:/home/fey1tv/dev/papers/Yang22arxiv.pdf:PDF},
+  groups   = {Training Techniques, TOREAD, Text},
+  priority = {prio1},
+}
+
+@InProceedings{Hu21arxiv,
+  author   = {Edward Hu and Yelong Shen and Phillip Wallis and Zeyuan Allen-Zhu and Yuanzhi Li and Shean Wang and Lu Wang and Weizhu Chen and Microsoft Corporation and {edwardhu and yeshe and phwallis and zeyuana and yuanzhil and swang and luw and wzchen}@microsoft.com and yuanzhil@andrew.cmu.edu and (Version 2)},
+  title    = {LoRA: Low-Rank Adaptation of Large Language Models},
+  year     = {2021},
+  file     = {:/home/fey1tv/dev/papers/Hu21arxiv-LoRA.pdf:PDF},
+  groups   = {Training Techniques, TOREAD, Text},
+  priority = {prio1},
+}
+
+@InProceedings{Rombach22arxiv,
+  author   = {Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser and Björn Ommer},
+  title    = {High-Resolution Image Synthesis with Latent Diffusion Models},
+  year     = {2022},
+  abstract = {ours (f = 4) DALL-E (f = 8) VQGAN (f = 16)
+Input PSNR: 27.4 R-FID: 0.58 PSNR: 22.8 R-FID: 32.01 PSNR: 19.9 R-FID: 4.98},
+  file     = {:/home/fey1tv/dev/papers/Rombach22arxiv-LatentDiffusion.pdf:PDF},
+  groups   = {TOREAD, RGB, Image Generation},
+  priority = {prio1},
+}
+
+@InProceedings{Hoffmann22arxiv,
+  author   = {Jordan Hoffmann and Sebastian Borgeaud and Arthur Mensch and Elena Buchatskaya and Trevor Cai and Eliza Rutherford and Diego de Las Casas and Lisa Anne Hendricks and Johannes Welbl and Aidan Clark and Tom Hennigan and Eric Noland},
+  title    = {Training Compute-Optimal Large Language Models},
+  year     = {2022},
+  file     = {:/home/fey1tv/dev/papers/Hoffmann22arxiv-Chinchilla.pdf:PDF},
+  groups   = {Training Techniques, TOREAD, Text},
+  priority = {prio1},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
@@ -1096,6 +1263,7 @@ allowing insightful analysis of its decisions.},
 2 StaticGroup:NERF\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Point Sets\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Sparse\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Training Techniques\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Transformers\;0\;0\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Bosch Papers\;0\;0\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Datasets\;0\;1\;0x8a8a8aff\;\;\;;
@@ -1111,6 +1279,7 @@ allowing insightful analysis of its decisions.},
 2 StaticGroup:Radar Pointcloud\;0\;0\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Radar Spectra\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:RGB\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Text\;0\;1\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Paper Interviews\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Zhang22iip-deraining\;0\;1\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Projects\;0\;1\;0x8a8a8aff\;\;\;;
@@ -1121,8 +1290,13 @@ allowing insightful analysis of its decisions.},
 1 StaticGroup:Semantic Space\;0\;0\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Simulators\;0\;1\;0x8a8a8aff\;\;\;;
 1 StaticGroup:Tasks\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Image Generation\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Object Detection\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Planning\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Semantic Segmentation\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Volumetric Reconstruction\;0\;1\;0x8a8a8aff\;\;\;;
-1 StaticGroup:TOREAD\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:Theory\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:POMDP\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Reinforcement Learning\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:TOREAD\;0\;0\;0x8a8a8aff\;\;\;;
 }
